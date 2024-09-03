@@ -1,5 +1,5 @@
 import { type ComponentPropsWithoutRef } from "react";
-import "./Button.css";
+import styles from "./Button.module.css";
 
 type ButtonVariant = "primary" | "secondary";
 
@@ -20,7 +20,7 @@ const Button = ({
   style = {},
   ...restProps
 }: ButtonProps) => {
-  const buttonClass = `button ${variant} ${className}`;
+  const buttonClass = `${styles[variant]} ${className}`;
 
   const combinedStyle = {
     backgroundColor: bgColor,

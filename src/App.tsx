@@ -1,7 +1,8 @@
 import { useState } from "react";
-import ConfirmForm from "./features/InputCon/InputConPage";
+import ConfirmForm from "./features/ConfirmForm/ConfirmForm";
 import ListArea from "./features/ListArea/ListArea";
-import SearchBar from "./features/Search/Search";
+import SearchBar from "./features/Search/SearchBar";
+import styles from "./App.module.css";
 
 export type ContactType = {
   name: string;
@@ -36,14 +37,16 @@ function App() {
   };
 
   return (
-    <>
-      <header>연락처 리스트</header>
-      <main>
+    <div className={styles.app}>
+      <header className={styles.header}>연락처 리스트</header>
+      <main className={styles.main}>
         <ConfirmForm onAddList={handleAddContact} />
-        <SearchBar onSearch={handleSearch} />
-        <ListArea contacts={contacts} onDelete={handleDelete} />
+        <section className={styles.rightBox}>
+          <SearchBar onSearch={handleSearch} />
+          <ListArea contacts={contacts} onDelete={handleDelete} />
+        </section>
       </main>
-    </>
+    </div>
   );
 }
 

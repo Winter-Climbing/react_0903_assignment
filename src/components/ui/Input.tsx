@@ -1,19 +1,23 @@
-import React, { type ComponentPropsWithoutRef } from "react";
+import { type ComponentPropsWithoutRef } from "react";
+import styles from "./Input.module.css";
 
-type InputProps = Omit<ComponentPropsWithoutRef<"input">, "onChange"> & {
+type InputProps = ComponentPropsWithoutRef<"input"> & {
   label?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input: React.FC<InputProps> = ({
+const Input = ({
   label,
   placeholder = "",
   type = "text",
   name,
+  className = "",
   value,
   onChange,
+  onKeyDown,
   ...restProps
-}) => {
+}: InputProps) => {
+  const inputClass = `${styles} ${className}`;
+
   return (
     <div>
       {label && <label htmlFor={name}>{label}</label>}
@@ -24,6 +28,8 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
+        className={inputClass}
         {...restProps}
       />
     </div>

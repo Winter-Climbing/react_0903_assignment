@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Input, Modal } from "../../components/ui/index.ts";
 import { createPortal } from "react-dom";
 import { ContactType } from "../../App.tsx";
+import useModal from "../../hooks/useModal";
 
 type ConfirmFormProps = {
   onAddList: (contact: ContactType) => void;
@@ -18,21 +19,13 @@ const ConfirmForm = ({ onAddList }: ConfirmFormProps) => {
   });
 
   const [groups, setGroups] = useState<string[]>(initialGroups);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const { isOpen: isModalOpen, openModal, closeModal } = useModal();
 
   const handleGroupChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFormData({
       ...formData,
       group: e.target.value,
     });
-  };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
   };
 
   const addGroup = (newGroup: string) => {
@@ -81,9 +74,8 @@ const ConfirmForm = ({ onAddList }: ConfirmFormProps) => {
               value={formData.group}
               onChange={handleGroupChange}
             >
-              <option value="">그룹 선택</option>
-              {groups.map((group, index) => (
-                <option key={index} value={group}>
+              {groups.map((group) => (
+                <option key={`${String(Symbol(group))}`} value={group}>
                   {group}
                 </option>
               ))}

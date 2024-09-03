@@ -33,8 +33,8 @@ const Modal = ({ groups, onAddGroup, onRemoveGroup, onClose }: ModalProps) => {
           <Button onClick={handleAddGroup}>추가</Button>
         </div>
         <ul>
-          {groups.map((group, index) => (
-            <li key={index}>
+          {groups.map((group) => (
+            <li key={`${String(Symbol(group))}`}>
               {group}
               <Button onClick={() => onRemoveGroup(group)}>삭제</Button>
             </li>

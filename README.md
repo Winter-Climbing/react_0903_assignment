@@ -1,6 +1,6 @@
 # 240903 Assignment
 
-- 1차 배포 실패
+> https://silver-kangaroo-0c7b8d.netlify.app/
 
 - 실행 커멘드
 
