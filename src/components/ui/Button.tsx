@@ -20,7 +20,7 @@ const Button = ({
   style = {},
   ...restProps
 }: ButtonProps) => {
-  const buttonClass = `${styles[variant]} ${className}`;
+  const buttonClass = `${styles.button} ${styles[variant]} ${className}`;
 
   const combinedStyle = {
     backgroundColor: bgColor,

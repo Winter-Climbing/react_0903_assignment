@@ -16,7 +16,7 @@ const Input = ({
   onKeyDown,
   ...restProps
 }: InputProps) => {
-  const inputClass = `${styles} ${className}`;
+  const inputClass = `${styles.input} ${className}`;
 
   return (
     <div>
