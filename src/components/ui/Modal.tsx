@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
+import "./Modal.css";
 
 type ModalProps = {
   groups: string[];
@@ -20,8 +21,8 @@ const Modal = ({ groups, onAddGroup, onRemoveGroup, onClose }: ModalProps) => {
   };
 
   return (
-    <div style={modalStyles.overlay}>
-      <div style={modalStyles.content}>
+    <div className="overlay">
+      <div className="content">
         <h2>그룹 관리</h2>
         <div>
           <Input
@@ -43,27 +44,6 @@ const Modal = ({ groups, onAddGroup, onRemoveGroup, onClose }: ModalProps) => {
       </div>
     </div>
   );
-};
-
-const modalStyles = {
-  overlay: {
-    position: "fixed" as const,
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  content: {
-    backgroundColor: "#fff",
-    padding: "20px",
-    borderRadius: "8px",
-    width: "300px",
-    maxWidth: "80%",
-  },
 };
 
 export default Modal;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Button } from "../../components/ui";
 // import Modal from "../../components/ui/Modal";
 
@@ -15,15 +15,15 @@ type ContactListProps = {
 };
 
 const ListArea = ({ contacts, onDelete }: ContactListProps) => {
-  const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+  // const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
 
   const handleDelete = (index: number) => {
     onDelete(index);
   };
 
-  const handleShowDetails = (contact: Contact) => {
-    setSelectedContact(contact);
-  };
+  // const handleShowDetails = (contact: Contact) => {
+  //   setSelectedContact(contact);
+  // };
 
   // const handleCloseModal = () => {
   //   setSelectedContact(null);
@@ -37,7 +37,7 @@ const ListArea = ({ contacts, onDelete }: ContactListProps) => {
             {contact.name} {contact.phone} {contact.group}
             <Button
               variant="secondary"
-              onClick={() => handleShowDetails(contact)}
+              // onClick={() => handleShowDetails(contact)}
             >
               세부사항
             </Button>
