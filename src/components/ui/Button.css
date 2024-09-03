@@ -1,0 +1,20 @@
+.button {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 0.7rem 3rem;
+}
+
+.primary {
+  background: #1395e0;
+  color: white;
+  border-radius: 4px;
+}
+
+.secondary {
+  background: gray;
+  color: black;
+}
